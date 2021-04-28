@@ -526,6 +526,8 @@ body {
 .carousel .card-8 {
   background: #b1fa05;
 }
+
+
 .site-footer
 {
   background-color:#483D8B;
@@ -617,6 +619,12 @@ body {
   {
     text-align:center
   }
+  .social-icons li.title
+  {
+    display:block;
+    margin-right:0;
+    font-weight:600
+  }
 }
 .social-icons
 {
@@ -680,15 +688,7 @@ body {
 {
   background-color:#ea4c89
 }
-@media (max-width:767px)
-{
-  .social-icons li.title
-  {
-    display:block;
-    margin-right:0;
-    font-weight:600
-  }
-}
+
 /*.owl-dots {
   text-align: center;
   margin-top: 40px;
@@ -708,3 +708,65 @@ body {
   background: green!important;
 }*/
 
+@media only screen and (max-width: 2560px) {
+  .menu__login__text {
+      font-size: 20px;
+      font-weight: 700;
+  }
+  }
+  @media only screen and (max-width: 1820px) {
+      .menu__login__text {
+          font-size: 18px;
+          font-weight: 700;
+      }
+  }
+  @media only screen and (max-width: 1635px) {
+    .menu__login__text {
+        font-size: 17px;
+        font-weight: 700;
+    }
+  }
+  @media only screen and (max-width: 1400px) {
+    .menu a {
+        font-size: 17px;
+        letter-spacing: 2px;
+    }
+    .menu__icon {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .menu__reg {
+        width: 10.59vw;
+    }
+    .menu__login__text {
+        font-size: 17px;
+        font-weight: 700;
+    }
+}
+@media only screen and (max-width: 1200px) {
+  .menu__login {
+      height: 36px;
+  }
+  .container {
+      width: -1;
+  }
+  header {
+      background-position: left 26% bottom 8%;
+  }
+  .menu__login__text {
+      font-size: 16px;
+      font-weight: 700;
+  }
+  .menu__reg {
+      width: 10.59vw;
+      margin-right: 19px;
+      margin-top: -5px;
+  }
+  .menu a {
+      font-size: 15px;
+  }
+  .menu__icon {
+      margin-right: 0;
+      margin-left: 0;
+  }
+}
