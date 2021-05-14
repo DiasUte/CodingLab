@@ -42,9 +42,10 @@ if(!isset($_COOKIE['username'])) {
         <div class="main__header">
             <h1>SIGN IN</h1>
         </div>
-        <div class="input">
+        <div class="input" >
+            <form action="account.php" method="post"></form>
             <div class="input__text1">
-                <input type="text" placeholder="Enter your E-mail" id="input_phone" name="email" required class=".input1">
+                <input type="text" placeholder="Enter your E-mail" id="input_phone" name="username" required class=".input1">
                 <input type="password" placeholder="Enter your password" id="input_phone" name = "password"class=".input1">
                 <input type="password" placeholder="Confirm your password" id="input_phone"name = "password2" class=".input1">
             </div>
