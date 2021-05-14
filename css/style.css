@@ -491,21 +491,12 @@ body {
   margin: auto;
   padding: 0 0px;
 }
-.carousel .card {
-  border-radius: 10px;
-  line-height: 250px;
-  text-align: center;
-  color: #fff;
-  font-size: 90px;
-  font-weight: 600;
-  margin: 20px 0;
-  box-shadow: 0px 4px 15px rgba(0, 0,0,0.2);
-}
+
 .carousel .card-1 {
   background: #ed1c24;
 }
 .carousel .card-2 {
-  background: #aeed1c;
+  background: url(https://www.film.ru/sites/default/files/movies/posters/44666512-1427025.jpg);
 }
 .carousel .card-3 {
   background: #1cedae;
@@ -874,3 +865,88 @@ body {
   -o-transform: rotate(360deg);
   transform: rotate(360deg);
 }
+
+/* --- Описании сериалов, кино, hover sliders.... 
+.carousel .card {
+  border-radius: 10px;
+  line-height: 250px;
+  text-align: center;
+  color: #fff;
+  font-size: 90px;
+  font-weight: 600;
+  margin: 20px 0;
+  box-shadow: 0px 4px 15px rgba(0, 0,0,0.2);
+} */
+.carousel .card {
+  border-radius: 10px;
+  color: white;
+  height: 275px;
+  max-width: 35ch;
+  margin: 20px 0;
+  box-shadow: 0px 4px 15px rgba(0, 0,0,0.2);
+  transition: transform 500ms ease;
+}
+.card-content {
+  padding: 1rem;
+  border-radius: 10px;
+  height: 100%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  transform: translateY(85%);
+  transition: transform 475ms ease;
+}
+.card:hover .card-content{
+  transform: translateY(0);
+  background: rgba(0, 0,0,0.2);
+  transition-delay: 500ms;
+}
+.card-content > *:not(.card-title) {
+  opacity: 0;
+  transition: opacity 500ms linear;
+}
+.card:hover .card-content > *:not(.card-title)  {
+  opacity: 1;
+  transition-delay: 800ms;
+}
+.card-content *+* {
+  margin-top: 10px;
+}
+.card-title {
+    position: relative;
+    width: max-content;
+  }
+.card-title::after {
+  content: " ";
+  bottom: -2px;
+  left: 0;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: lime;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 500ms ease;
+}
+.card:hover .card-title::after {
+  transform: scaleX(1);
+}
+.card-buttom {
+  cursor: pointer;
+  display: inline-block;
+  color: white;
+  background-color: rgba(0, 0,0,0.5);
+  padding: 0.5em 1.25em;
+  border-radius: 5px;
+}
+.card-buttom:hover,
+.card-buttom:focus {
+  background-color: white;
+  color: blueviolet;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+
