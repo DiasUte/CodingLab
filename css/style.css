@@ -977,9 +977,26 @@ body {
 .card:hover {
   transform: scale(1.05);
 }
-.eachInfoText {
-  color: white;
-  font-size: xx-large;
+
+.movieMain {
+  margin-left: 10%;
+   width: 80%;
+}
+.eachInfoText1 {
+  color: whitesmoke;
+  font-size: 50px;
   text-align: center;
   float:inherit;
+}
+.eachInfoText {
+  color:rgb(94, 86, 86);
+  font-size: medium;
+  float:inherit;
+}
+.links {
+  padding-top: 10px;
+  justify-content:space-around;
+}
+.links a{
+  padding-left: 20px;
 }

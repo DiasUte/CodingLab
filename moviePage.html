@@ -1,13 +1,4 @@
 <!doctype html>
-<?php
-	ob_start();
-	$dbc = mysqli_connect('localhost', 'root', '', 'qara') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
-if(isset($_GET['id'])) {
-  $movieid = $_GET['id'];
-	$movieInfo = mysqli_query($dbc, "SELECT moviename,year,country,genres,actors,time,linkToMovie,linkToImage FROM `movies` WHERE id = '$movieid'");
-	$rowMovieInfo = mysqli_fetch_array($movieInfo);
-}
-?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -76,16 +67,32 @@ if(isset($_GET['id'])) {
 
       </div>
     </header>
-    <div class="movieMain" style = "margin-left: 10%; width: 80%; border: 1px solid lime;">
+    <div class="movieMain" >
         <section class="movieInfoBlock">
           <div class="eachInfoBlock">
-            <span class="eachInfoText1">Watch the movie <?php echo $rowMovieInfo[0]; ?> online </span>
+            <span class="eachInfoText1">Мультфильм Шрек смотреть онлайн</span>
           </div>
           <div class="eachInfoBlock">
-            <span class="eachInfoText"><?php echo $rowMovieInfo[1]; ?>, <?php echo $rowMovieInfo[2]; ?>, <?php echo $rowMovieInfo[3]; ?>, <?php echo $rowMovieInfo[5]; ?></span>
+            <span class="eachInfoText">Shrek</span>
           </div>
           <div class="eachInfoBlock">
-            <span class="eachInfoText"><b>Actors</b> : <?php echo $rowMovieInfo[4]; ?></span>
+            <span class="eachInfoText">2001, США, Для детей, Приключения, Семейные, 86 мин, 6+</span>
+          </div>
+          <div class="eachInfoBlock">
+            <span class="eachInfoText"><b>Actors: </b>Майк Майерс, Эдди Мёрфи, Кэмерон Диаз, Джон Литгоу</span>
+          </div>
+          <br>
+          <div class="eachInfoBlock">
+            <span class="eachInfoText"><iframe width="100%" height="400px" src="https://www.youtube.com/embed/EL5ytIXft5M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></span>
+          </div>
+          <div class="eachInfoBlock">
+            <span class="eachInfoText">
+                <nav class = "links">
+                    <a href="">Смотреть потом</a>
+                    <a href="">Трейлер</a>
+                    <a href="">Поделиться</a>
+                </nav>
+            </span>
           </div>
           <!--<div class="eachInfoBlock">
             <span class="eachInfoText">Link to movie :</span>
@@ -98,10 +105,20 @@ if(isset($_GET['id'])) {
         </section>
 </div>
 
-
-
-
-      <footer class="site-footer">
+<h1 class = "h-cat">С фильмом Шрек смотрят</h1>
+  <div class="wrapper">
+    <div class="carousel owl-carousel">
+      <div class="card card-1">A</div>
+      <div class="card card-2">B</div>
+      <div class="card card-3">C</div>
+      <div class="card card-4">D</div>
+      <div class="card card-5">E</div>
+      <div class="card card-6">F</div>
+      <div class="card card-7">G</div>
+      <div class="card card-8">H</div>
+    </div>
+  </div>
+<footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
