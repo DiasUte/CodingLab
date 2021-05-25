@@ -223,8 +223,6 @@ ball.addEventListener("click", () => {
   });
   ball.classList.toggle("active");
 });
-
-
 slideShow('.slider', {
   isAutoplay: true
 });
