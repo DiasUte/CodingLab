@@ -170,14 +170,14 @@ if(isset($_GET['id'])) {
   <h1 class = "h-cat"><a href=""  class = "logo">Жанры</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
-      <div class="card card-1">A</div>
-      <div class="card card-2">B</div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
+      <div class="genres">A</div>
+      <div class="genres">B</div>
+      <div class="genres">C</div>
+      <div class="genres">D</div>
+      <div class="genres">E</div>
+      <div class="genres">F</div>
+      <div class="genres">G</div>
+      <div class="genres">H</div>
     </div>
   </div>
 

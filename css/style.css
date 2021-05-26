@@ -915,6 +915,15 @@ body {
   box-shadow: 0px 4px 15px rgba(0, 0,0,0.2);
   transition: transform 500ms ease;
 }
+.carousel .genres {
+  border-radius: 10px;
+  color: blueviolet;
+  height: 150px;
+  max-width: 35ch;
+  margin: 20px 0;
+  box-shadow: 0px 4px 15px rgba(0, 0,0,0.2);
+  transition: transform 500ms ease;
+}
 .card-content {
   padding: 1rem;
   border-radius: 10px;
