@@ -1,20 +1,9 @@
 <!doctype html>
-<?php
-	ob_start();
-	$dbc = mysqli_connect('localhost', 'root', '', 'qara') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
-if(isset($_GET['id'])) {
-  $movieid = $_GET['id'];
-	$movieInfo = mysqli_query($dbc, "SELECT name FROM `categories` WHERE id = '$movieid'");
-	$rowMovieInfo = mysqli_fetch_array($movieInfo);
-}
-else {
-  header('Location: index.html');
-}
-?>
+
 <html>
 <head>
     <meta charset="utf-8">
-    <title><?php echo $rowMovieInfo[0]; ?></title>
+    <title>Index</title>
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">
@@ -41,10 +30,10 @@ else {
             <div class="header">
                 <a href="index.html" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
                 <nav class="menu">
-                <a class = "whatisit" href="movie.php" id = "1">Movies</a>
-                <a class = "whatisit" href="movie.php" id = "2">Serials</a>
-                <a class = "whatisit" href="movie.php" id = "3">Cartoons</a>
-                <a class = "whatisit" href="movie.php" id = "4">TV Shows</a>
+                    <a href="movie.php?id=1">Movies</a>
+                    <a href="movie.php?id=2">Serials</a>
+                    <a href="movie.php?id=3">Cartoons</a>
+                    <a href="movie.php?id=4">TV Shows</a>
                 </nav>
                 <div class="menu__icon">
                     <a href="">Search</a>
@@ -57,7 +46,7 @@ else {
                 <a href="javascript:openModal()" class="menu__reg">
                     <div class="menu__login">
                         <div class="menu__login__text">
-                        <?php 
+                            <?php 
                             if(!isset($_COOKIE['username'])) {
                                 echo "Sign in";
                             } else {
@@ -85,7 +74,7 @@ else {
     
 <!-- SLIDER -->
 
-<div class="slider" style = "display: none;">
+<div class="slider">
     <div class="slider__wrapper">
       <div class="slider__items">
         <div class="slider__item slider__item_1">
@@ -148,7 +137,7 @@ else {
 
   <!--Movies-->
   <br>
-  <h1 class = "h-cat"><a href="" class = "logo">Премьеры <?php echo $rowMovieInfo[0]; ?></a></h1>
+  <h1 class = "h-cat"><a href="" class = "logo">MOVIES ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
       <div class="card card-1">
@@ -177,22 +166,22 @@ else {
   </div>
 
   <br>
-  <h1 class = "h-cat"><a href=""  class = "logo">Жанры</a></h1>
+  <h1 class = "h-cat"><a href=""  class = "logo">SERIES ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
-      <div class="genres">A</div>
-      <div class="genres">B</div>
-      <div class="genres">C</div>
-      <div class="genres">D</div>
-      <div class="genres">E</div>
-      <div class="genres">F</div>
-      <div class="genres">G</div>
-      <div class="genres">H</div>
+      <div class="card card-1">A</div>
+      <div class="card card-2">B</div>
+      <div class="card card-3">C</div>
+      <div class="card card-4">D</div>
+      <div class="card card-5">E</div>
+      <div class="card card-6">F</div>
+      <div class="card card-7">G</div>
+      <div class="card card-8">H</div>
     </div>
   </div>
 
   <br>
-  <h1 class = "h-cat"><a href="" class = "logo">Лучшие <?php echo $rowMovieInfo[0]; ?></a></h1>
+  <h1 class = "h-cat"><a href="" class = "logo">CARTOONS ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
       <div class="card card-1">A</div>
@@ -208,7 +197,7 @@ else {
 
 
   <br>
-  <h1 class = "h-cat"><a href="" class = "logo">Выбор Qara</a></h1>
+  <h1 class = "h-cat"><a href="" class = "logo">TV SHOWS ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
       <div class="card card-1">A</div>
@@ -283,12 +272,6 @@ else {
     $(".card-buttom").on("click", function(){
       var id = this.id;
       location.href = "moviePage.php?id=" + id; 
-    });
-  });
-  $(document).ready(function(){
-    $(".whatisit").on("click", function(){
-      var id = this.id;
-      location.href = "movie.php?id=" + id; 
     });
   });
 </script>

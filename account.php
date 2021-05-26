@@ -1,36 +1,8 @@
 <!DOCTYPE html>
-<?php
-ob_start();
-$dbc = mysqli_connect('localhost', 'root', '', 'qara') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
-
-if(!isset($_COOKIE['username'])) {
-	if(isset($_POST['submitLog'])) {
-		$username = mysqli_real_escape_string($dbc, trim($_POST['username']));
-		$password = mysqli_real_escape_string($dbc, trim($_POST['password']));
-        $password2 = mysqli_real_escape_string($dbc, trim($_POST['password2']));
-		if(!empty($username) && !empty($password) && !empty($password2)  && ($password == $password2)) {
-			$query = "SELECT `username` FROM `users` WHERE username = '$username' AND password = SHA('$password')";
-			$data = mysqli_query($dbc,$query);
-			if(mysqli_num_rows($data) == 1) {
-				$row = mysqli_fetch_assoc($data);
-				setcookie('username', $row['username'], time() + (60*60*24*30));
-				ob_end_flush();
-        header('Location: index.html');
-			}
-			else {
-				ob_end_flush();
-        header('Location: registration.php');
-			}
-		}
-
-	}
-}
-
-?>
 <html>
-
 <head>
     <title>Account</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" type="text/css" href="css/Login__Styles.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">
@@ -43,17 +15,39 @@ if(!isset($_COOKIE['username'])) {
             <h1>SIGN IN</h1>
         </div>
         <div class="input" >
-            <form action="account.php" method="post"></form>
             <div class="input__text1">
-                <input type="text" placeholder="Enter your E-mail" id="input_phone" name="username" required class=".input1">
-                <input type="password" placeholder="Enter your password" id="input_phone" name = "password"class=".input1">
-                <input type="password" placeholder="Confirm your password" id="input_phone"name = "password2" class=".input1">
+                <input type="text" placeholder="Enter your nickname" id="username" name="username" required class=".input1">
+                <input type="password" placeholder="Enter your password" id="password" name = "password" class=".input1">
+                <input type="password" placeholder="Confirm your password" id="re_password" name = "password2" class=".input1">
             </div>
         </div>
-        <a href="" name="submitLog" class="btn2">
-            <div class="btn__text">ENTER</div>
-        </a>
+        <input type="submit" id="submitLog" name="submitLog" value="Log in" class="btn2">
+        <p class="form-error" id="form_error"></p>
     </div>
 </body>
+<script src="aos-master/dist/aos.js"></script>
+	<script type="text/javascript">
+  	$(document).ready(function() {
+  		$('#submitLog').on('click', function() {
+  			var username = $('#username').val();
+  			var password = $('#password').val();
+  			$.ajax({
+  				method: "POST",
+  				url: "checkUser.php",
+  				data: { login: '1', username: username, password: password }
+  			})
+  				.done(function(result) {
+  					if (result == "1") {
+  						window.location.href = 'index.html';
+  					} else if (result == "0"){
+  						$('#form_error').html('Username or password is not correct');
+                          
+  					} else {
+  						$('#form_error').html('ERROR. TRY AGAIN');
+  					}
+  				});
+  		});
+  	});
+	</script>
 
 </html>

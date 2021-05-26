@@ -38,10 +38,10 @@ if(isset($_GET['id'])) {
             <div class="header">
                 <a href="" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
                 <nav class="menu">
-                <a class = "whatisit" href="movie.php" id = "1">Movies</a>
-                <a class = "whatisit" href="movie.php" id = "2">Serials</a>
-                <a class = "whatisit" href="movie.php" id = "3">Cartoons</a>
-                <a class = "whatisit" href="movie.php" id = "4">TV Shows</a>
+                <a href="movie.php?id=1">Movies</a>
+                <a href="movie.php?id=2">Serials</a>
+                <a href="movie.php?id=3">Cartoons</a>
+                <a href="movie.php?id=4">TV Shows</a>
                 </nav>
                 <div class="menu__icon">
                     <a href="">Search</a>
@@ -53,7 +53,14 @@ if(isset($_GET['id'])) {
               </div>
                 <a href="javascript:openModal()" class="menu__reg">
                     <div class="menu__login">
-                        <div class="menu__login__text">Sign in</div>
+                        <div class="menu__login__text">
+                        <?php 
+                            if(!isset($_COOKIE['username'])) {
+                                echo "Sign in";
+                            } else {
+                                echo $_COOKIE['username'];
+                            }?> 
+                        </div>
                     </div>
                 </a>    
             </div>
@@ -72,16 +79,75 @@ if(isset($_GET['id'])) {
 
       </div>
     </header>
+    
+    <div class="slider" style = "display: none;">
+    <div class="slider__wrapper">
+      <div class="slider__items">
+        <div class="slider__item slider__item_1">
+          <span class="slider__item_inner">
+            <span class="slider__item_img">
+              <img class="slider__item_photo" src="https://media.kg-portal.ru/movies/g/godzillavskingkong/posters/godzillavskingkong_13.jpg" alt="">
+            </span>
+            <span class="slider__item_testimonial">
+              <span class="slider__item_name">Godzilla vs. Kong (2021)</span>
+              <span class="slider__item_post"> Action, Sci-Fi, Thriller </span>
+              <span class="slider__item_text">
+                The epic next chapter in the cinematic Monsterverse pits two of the greatest icons in motion picture history against one another - the fearsome Godzilla and the mighty Kong - with humanity caught in the balance.
+        
+              </span>
+              <span class="slider__item_action">
+                <a class="btn" href="https://youtu.be/odM92ap8_c0">Watch trailer</a>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div class="slider__item slider__item_2">
+          <span class="slider__item_inner">
+            <span class="slider__item_img">
+              <img class="slider__item_photo" src="https://www.film.ru/sites/default/files/movies/posters/44666512-1427025.jpg" alt="">
+            </span>
+            <span class="slider__item_testimonial">
+              <span class="slider__item_name">Tom & Jerry (2021)</span>
+              <span class="slider__item_post">Animation, Comedy, Family</span>
+              <span class="slider__item_text">
+                A chaotic battle ensues between Jerry Mouse, who has taken refuge in the Royal Gate Hotel, and Tom Cat, who is hired to drive him away before the day of a big wedding arrives.
+              </span>
+              <span class="slider__item_action">
+                <a class="btn" href="https://www.youtube.com/watch?v=kP9TfCWaQT4">Watch trailer</a>
+              </span>
+            </span>
+          </span>
+        </div>
+        <div class="slider__item slider__item_3">
+          <span class="slider__item_inner">
+            <span class="slider__item_img">
+              <img class="slider__item_photo" src="https://m.media-amazon.com/images/M/MV5BMTE0ZjY2Y2MtNjNjMS00MzA4LWJkOTYtMGIwM2FmODgwMTgxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="">
+            </span>
+            <span class="slider__item_testimonial">
+              <span class="slider__item_name">Zack Snyder's Justice League (2021)</span>
+              <span class="slider__item_post">Action, Adventure, Fantasy </span>
+              <span class="slider__item_text">
+                Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.
+              </span>
+              <span class="slider__item_action">
+                <a class="btn" href="https://youtu.be/vM-Bja2Gy04">Watch trailer</a>
+              </span>
+            </span>
+          </span>
+        </div>
+      </div>
+      <a class="slider__control slider__control_prev" href="#" role="button"></a>
+      <a class="slider__control slider__control_next" href="#" role="button"></a>
+    </div>
+</div>
+
     <div class="movieMain" >
         <section class="movieInfoBlock">
           <div class="eachInfoBlock">
-            <span class="eachInfoText1">Мультфильм <?php echo $rowMovieInfo[1]; ?> смотреть онлайн</span>
+            <span class="eachInfoText1">Мультфильм <?php echo $rowMovieInfo[0]; ?> смотреть онлайн</span>
           </div>
           <div class="eachInfoBlock">
-            <span class="eachInfoText"><?php echo $rowMovieInfo[1]; ?></span>
-          </div>
-          <div class="eachInfoBlock">
-            <span class="eachInfoText">2001, США, Для детей, Приключения, Семейные, 86 мин, 6+</span>
+            <span class="eachInfoText"><?php echo $rowMovieInfo[1]; ?>, США, Для детей, Приключения, Семейные, 86 мин, 6+</span>
           </div>
           <div class="eachInfoBlock">
             <span class="eachInfoText"><b>Actors: </b>Майк Майерс, Эдди Мёрфи, Кэмерон Диаз, Джон Литгоу</span>
@@ -184,12 +250,6 @@ if(isset($_GET['id'])) {
     $(".card-buttom").on("click", function(){
       var id = this.id;
       location.href = "moviePage.php?id=" + id; 
-    });
-  });
-  $(document).ready(function(){
-    $(".whatisit").on("click", function(){
-      var id = this.id;
-      location.href = "movie.php?id=" + id; 
     });
   });
 </script>
