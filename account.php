@@ -38,7 +38,7 @@
   			})
   				.done(function(result) {
   					if (result == "1") {
-  						window.location.href = 'index.html';
+  						window.location.href = 'index.php';
   					} else if (result == "0"){
   						$('#form_error').html('Username or password is not correct');
                           

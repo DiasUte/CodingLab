@@ -3,15 +3,22 @@
 	ob_start();
 	$dbc = mysqli_connect('localhost', 'root', '', 'qara') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
 if(isset($_GET['id'])) {
-  $movieid = $_GET['id'];
-	$movieInfo = mysqli_query($dbc, "SELECT moviename,year,country,genres,actors,time,linkToMovie,linkToImage FROM `movies` WHERE id = '$movieid'");
+  $movie_id = $_GET['id'];
+	$movieInfo = mysqli_query($dbc, "SELECT moviename,year,country,genres,actors,time,linkToMovie,linkToImage FROM `movies` WHERE id = '$movie_id'");
 	$rowMovieInfo = mysqli_fetch_array($movieInfo);
+
+  $messages = mysqli_query($dbc, "SELECT * FROM `comments` WHERE movie_id = '$movie_id'");
 }
 ?>
 <html>
 <head>
     <meta charset="utf-8">
     <title>Movie</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
@@ -36,7 +43,7 @@ if(isset($_GET['id'])) {
     <header>
         <div class="container">
             <div class="header">
-                <a href="" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
+                <a href="index.php" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
                 <nav class="menu">
                 <a href="movie.php?id=1">Movies</a>
                 <a href="movie.php?id=2">Serials</a>
@@ -190,6 +197,37 @@ if(isset($_GET['id'])) {
     </div>
   </div>
 
+  <h2 align="center"><a href="#">Comments</a></h2>
+  <br />
+  <div class="container">
+   <form method="POST" id="comment_form" action = "add_comment.php">
+    <div class="form-group">
+     <textarea name="comment" id="comment" class="form-control" placeholder="Enter Comment" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+     <input type="hidden" name="movie_id" id="movie_id" value="<?php echo $movie_id;?>" />
+     <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
+    </div>
+   </form>
+   <span id="comment_message"></span>
+   <br />
+   <div id="display_comment">
+   <?php
+    while($messagesRow = mysqli_fetch_assoc($messages)){
+   ?>
+   <div class="form-group">
+   <span style = "color:white;">By <?php echo $messagesRow['author_user'];?>,<?php echo $messagesRow['date'];?></span>
+     <div style = "width: 80%; margin-right:10%; color: black; background: white; border-radius: 5px;">
+     <p><?php echo $messagesRow['comment'];?></p>
+     </div>
+    </div>
+    <?php 
+    }
+    ?>
+   </div>
+  </div>
+
+
 <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -250,6 +288,10 @@ if(isset($_GET['id'])) {
     $(".card-buttom").on("click", function(){
       var id = this.id;
       location.href = "moviePage.php?id=" + id; 
+    });
+    $(".whatisit").on("click", function(){
+      var id = this.id;
+      location.href = "movie.php?id=" + id; 
     });
   });
 </script>

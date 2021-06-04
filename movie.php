@@ -39,12 +39,12 @@ else {
     <header>
         <div class="container">
             <div class="header">
-                <a href="index.html" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
+                <a href="index.php" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
                 <nav class="menu">
-                <a class = "whatisit" href="movie.php" id = "1">Movies</a>
-                <a class = "whatisit" href="movie.php" id = "2">Serials</a>
-                <a class = "whatisit" href="movie.php" id = "3">Cartoons</a>
-                <a class = "whatisit" href="movie.php" id = "4">TV Shows</a>
+                <a  href="movie.php?id=1" id = "1">Movies</a>
+                <a href="movie.php?id=2" id = "2">Serials</a>
+                <a  href="movie.php?id=3" id = "3">Cartoons</a>
+                <a  href="movie.php?id=4" id = "4">TV Shows</a>
                 </nav>
                 <div class="menu__icon">
                     <a href="">Search</a>

@@ -63,8 +63,11 @@
               <a href="registration.php" class="btn1">
                   <div class="btn__text">I am first time</div>
               </a>
-              <a href="account.html" class="btn1">
+              <a href="account.php" class="btn1">
                   <div class="btn__text">I have already account</div>
+              </a>
+              <a href="exit.php" class="btn1">
+                  <div class="btn__text">Log Out</div>
               </a>
               <a class="prefix-close" title="Закрыть" href="#close"></a>
           </div>
@@ -153,7 +156,7 @@
           <h6 class="card-title">Tom & Jerry</h2>
           <p class="card-body">In this case it will be the small
           </p>
-          <a href="" class="card-buttom" id = "2">Let's go</a>
+          <a class="card-buttom" id = "2">Let's go</a>
         </div>
       </div>
       <div class="card card-3">C</div>
@@ -271,7 +274,12 @@
   $(document).ready(function(){
     $(".card-buttom").on("click", function(){
       var id = this.id;
-      location.href = "moviePage.php?id=" + id; 
+      location.href = "moviePage.php?id=" + id;
+    });
+    $(document).ready(function(){
+    $(".whatisit").on("click", function(){
+      var id = this.id;
+      location.href = "movie.php?id=" + id; 
     });
   });
 </script>
