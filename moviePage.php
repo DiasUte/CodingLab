@@ -7,7 +7,7 @@
   $cat_name = $_GET['sec_id'];
 	$movieInfo = mysqli_query($dbc, "SELECT name,year,country,genres,actors,time,linkToMovie,linkToImage FROM `$cat_name` WHERE id = '$movie_id'");
 	$rowMovieInfo = mysqli_fetch_array($movieInfo);
-  $messages = mysqli_query($dbc, "SELECT * FROM `comments` WHERE movie_id = '$movie_id'");
+  $messages = mysqli_query($dbc, "SELECT * FROM `comments` WHERE movie_id = '$movie_id' AND cat_name = '$cat_name'");
 }
 ?>
 <html>
@@ -78,7 +78,7 @@
               <a href="registration.php" class="btn1">
                   <div class="btn__text">I am first time</div>
               </a>
-              <a href="account.html" class="btn1">
+              <a href="account.php" class="btn1">
                   <div class="btn__text">I have already account</div>
               </a>
               <a class="prefix-close" title="Закрыть" href="#close"></a>
@@ -206,6 +206,7 @@
     </div>
     <div class="form-group">
      <input type="hidden" name="movie_id" id="movie_id" value="<?php echo $movie_id;?>" />
+     <input type="hidden" name="cat_name" id="cat_name" value="<?php echo $cat_name;?>" />
      <input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
     </div>
    </form>

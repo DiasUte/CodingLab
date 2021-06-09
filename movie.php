@@ -76,7 +76,7 @@ else {
               <a href="registration.php" class="btn1">
                   <div class="btn__text">I am first time</div>
               </a>
-              <a href="account.html" class="btn1">
+              <a href="account.php" class="btn1">
                   <div class="btn__text">I have already account</div>
               </a>
               <a class="prefix-close" title="Закрыть" href="#close"></a>

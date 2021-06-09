@@ -179,7 +179,7 @@
         <h6 class="card-title"><?php echo $seriesRow['name'];?></h2>
         <p class="card-body">In this case it will be the small description of movie
         </p>
-        <a href = "moviePage.php?fir_id=<?php echo $seriesRow['id'];?>&sec_id=Series" class="card-buttom">Let's go</a>
+        <a href = "moviePage.php?fir_id=<?php echo $seriesRow['id'];?>&sec_id=Serials" class="card-buttom">Let's go</a>
       </div>
       </div>
       <?php 
