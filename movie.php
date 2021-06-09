@@ -6,7 +6,8 @@ if(isset($_GET['id'])) {
   $movieid = $_GET['id'];
 	$movieInfo = mysqli_query($dbc, "SELECT name FROM `categories` WHERE id = '$movieid'");
 	$rowMovieInfo = mysqli_fetch_array($movieInfo);
-  $movies = mysqli_query($dbc, "SELECT * FROM `movies`");
+ 
+  $movies = mysqli_query($dbc, "SELECT * FROM `$rowMovieInfo[0]`");
 }
 else {
   header('Location: index.php');
