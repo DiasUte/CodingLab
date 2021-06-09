@@ -934,11 +934,13 @@ body {
   flex-direction:column;
   transform: translateY(85%);
   transition: transform 475ms ease;
+  visibility: hidden;
 }
 .card:hover .card-content{
   transform: translateY(0);
   background: rgba(0, 0,0,0.2);
   transition-delay: 500ms;
+  visibility:visible;
 }
 .card-content > *:not(.card-title) {
   opacity: 0;
@@ -1008,4 +1010,45 @@ body {
 }
 .links a{
   padding-left: 20px;
+}
+
+/* Genres. html */
+
+.tables{
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.tables ul{
+  padding: 0px;
+  margin: 0px;
+}
+
+.tables ul li{
+  float:left;
+  list-style: none;
+  width:20%;
+  height:300px;
+  margin :20px 0px 20px 55px; 
+  box-sizing: border-box;
+}
+.tables ul li:hover{
+  opacity: 0.8;
+}
+
+.tables ul li .card{
+  width: 100%;
+  background: blue;    
+  text-align: center;
+  color:white;
+  font-size: 20px;
+}
+
+@media screen and (max-width:1250px){
+  .tables ul li{
+      width:40%;
+      margin-left: 40px;
+  }
 }

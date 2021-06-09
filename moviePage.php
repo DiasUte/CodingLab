@@ -4,9 +4,8 @@
 	$dbc = mysqli_connect('localhost', 'root', '', 'qara') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
 if(isset($_GET['id'])) {
   $movie_id = $_GET['id'];
-	$movieInfo = mysqli_query($dbc, "SELECT moviename,year,country,genres,actors,time,linkToMovie,linkToImage FROM `movies` WHERE id = '$movie_id'");
+	$movieInfo = mysqli_query($dbc, "SELECT name,year,country,genres,actors,time,linkToMovie,linkToImage FROM `movies` WHERE id = '$movie_id'");
 	$rowMovieInfo = mysqli_fetch_array($movieInfo);
-
   $messages = mysqli_query($dbc, "SELECT * FROM `comments` WHERE movie_id = '$movie_id'");
 }
 ?>

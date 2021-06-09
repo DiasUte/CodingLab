@@ -1,5 +1,16 @@
 <!doctype html>
-
+<?php
+	ob_start();
+	$dbc = mysqli_connect('localhost', 'root', '', 'qara') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
+if(isset($_GET['fir_id']) & isset($_GET['sec_id'])) {
+  $cat_name = $_GET['sec_id'];
+  $genre_id = $_GET['fir_id'];
+	$movieInfo = mysqli_query($dbc, "SELECT * FROM `$cat_name` WHERE genre_id = '$genre_id'");
+}
+else {
+  header('Location: index.php');
+}
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -77,142 +88,26 @@
     
 <!-- SLIDER -->
 
-<div class="slider">
-    <div class="slider__wrapper">
-      <div class="slider__items">
-        <div class="slider__item slider__item_1">
-          <span class="slider__item_inner">
-            <span class="slider__item_img">
-              <img class="slider__item_photo" src="https://media.kg-portal.ru/movies/g/godzillavskingkong/posters/godzillavskingkong_13.jpg" alt="">
-            </span>
-            <span class="slider__item_testimonial">
-              <span class="slider__item_name">Godzilla vs. Kong (2021)</span>
-              <span class="slider__item_post"> Action, Sci-Fi, Thriller </span>
-              <span class="slider__item_text">
-                The epic next chapter in the cinematic Monsterverse pits two of the greatest icons in motion picture history against one another - the fearsome Godzilla and the mighty Kong - with humanity caught in the balance.
-        
-              </span>
-              <span class="slider__item_action">
-                <a class="btn" href="https://youtu.be/odM92ap8_c0">Watch trailer</a>
-              </span>
-            </span>
-          </span>
-        </div>
-        <div class="slider__item slider__item_2">
-          <span class="slider__item_inner">
-            <span class="slider__item_img">
-              <img class="slider__item_photo" src="https://www.film.ru/sites/default/files/movies/posters/44666512-1427025.jpg" alt="">
-            </span>
-            <span class="slider__item_testimonial">
-              <span class="slider__item_name">Tom & Jerry (2021)</span>
-              <span class="slider__item_post">Animation, Comedy, Family</span>
-              <span class="slider__item_text">
-                A chaotic battle ensues between Jerry Mouse, who has taken refuge in the Royal Gate Hotel, and Tom Cat, who is hired to drive him away before the day of a big wedding arrives.
-              </span>
-              <span class="slider__item_action">
-                <a class="btn" href="https://www.youtube.com/watch?v=kP9TfCWaQT4">Watch trailer</a>
-              </span>
-            </span>
-          </span>
-        </div>
-        <div class="slider__item slider__item_3">
-          <span class="slider__item_inner">
-            <span class="slider__item_img">
-              <img class="slider__item_photo" src="https://m.media-amazon.com/images/M/MV5BMTE0ZjY2Y2MtNjNjMS00MzA4LWJkOTYtMGIwM2FmODgwMTgxXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" alt="">
-            </span>
-            <span class="slider__item_testimonial">
-              <span class="slider__item_name">Zack Snyder's Justice League (2021)</span>
-              <span class="slider__item_post">Action, Adventure, Fantasy </span>
-              <span class="slider__item_text">
-                Determined to ensure Superman's ultimate sacrifice was not in vain, Bruce Wayne aligns forces with Diana Prince with plans to recruit a team of metahumans to protect the world from an approaching threat of catastrophic proportions.
-              </span>
-              <span class="slider__item_action">
-                <a class="btn" href="https://youtu.be/vM-Bja2Gy04">Watch trailer</a>
-              </span>
-            </span>
-          </span>
-        </div>
-      </div>
-      <a class="slider__control slider__control_prev" href="#" role="button"></a>
-      <a class="slider__control slider__control_next" href="#" role="button"></a>
-    </div>
+<div class="tables">
+    <ul>
+    <?php
+    while($movieRow = mysqli_fetch_assoc($movieInfo)){
+   ?>
+        <li>
+            <div class="card card-1">
+            <div class="card-content">
+            <h6 class="card-title"><?php echo $movieRow['name'];?></h2>
+            <p class="card-body">In this case it will be the small description of movie
+            </p>
+            <a class="card-buttom" id = "<?php echo $movieRow['id'];?>">Let's go</a>
+          </div>
+          </div>
+        </li>
+        <?php 
+    }
+    ?>
+    </ul>
 </div>
-
-  <!--Movies-->
-  <br>
-  <h1 class = "h-cat"><a href="movie.php?id=1" class = "logo">MOVIES ➤</a></h1>
-  <div class="wrapper">
-    <div class="carousel owl-carousel">
-      <div class="card card-1">
-        <div class="card-content">
-        <h6 class="card-title">SpongeBob</h2>
-        <p class="card-body">In this case it will be the small description of movie
-        </p>
-        <a class="card-buttom" id = "1">Let's go</a>
-      </div>
-      </div>
-      <div class="card card-2">
-        <div class="card-content">
-          <h6 class="card-title">Tom & Jerry</h2>
-          <p class="card-body">In this case it will be the small
-          </p>
-          <a class="card-buttom" id = "2">Let's go</a>
-        </div>
-      </div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
-    </div>
-  </div>
-
-  <br>
-  <h1 class = "h-cat"><a href="movie.php?id=2"  class = "logo">SERIES ➤</a></h1>
-  <div class="wrapper">
-    <div class="carousel owl-carousel">
-      <div class="card card-1">A</div>
-      <div class="card card-2">B</div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
-    </div>
-  </div>
-
-  <br>
-  <h1 class = "h-cat"><a href="movie.php?id=3" class = "logo">CARTOONS ➤</a></h1>
-  <div class="wrapper">
-    <div class="carousel owl-carousel">
-      <div class="card card-1">A</div>
-      <div class="card card-2">B</div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
-    </div>
-  </div>
-
-
-  <br>
-  <h1 class = "h-cat"><a href="movie.php?id=4" class = "logo">TV SHOWS ➤</a></h1>
-  <div class="wrapper">
-    <div class="carousel owl-carousel">
-      <div class="card card-1">A</div>
-      <div class="card card-2">B</div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
-    </div>
-  </div>
   
 
 <footer class="site-footer">

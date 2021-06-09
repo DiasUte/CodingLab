@@ -6,9 +6,10 @@ if(isset($_GET['id'])) {
   $movieid = $_GET['id'];
 	$movieInfo = mysqli_query($dbc, "SELECT name FROM `categories` WHERE id = '$movieid'");
 	$rowMovieInfo = mysqli_fetch_array($movieInfo);
+  $movies = mysqli_query($dbc, "SELECT * FROM `movies`");
 }
 else {
-  header('Location: index.html');
+  header('Location: index.php');
 }
 ?>
 <html>
@@ -151,20 +152,26 @@ else {
   <h1 class = "h-cat"><a href="" class = "logo">Премьеры <?php echo $rowMovieInfo[0]; ?></a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
+    <?php
+    while($movieRow = mysqli_fetch_assoc($movies)){
+   ?>
       <div class="card card-1">
         <div class="card-content">
-        <h6 class="card-title" >SpongeBob</h2>
+        <h6 class="card-title"><?php echo $movieRow['name'];?></h2>
         <p class="card-body">In this case it will be the small description of movie
         </p>
-        <a class="card-buttom" id = "1">Let's go</a>
+        <a class="card-buttom" id = "<?php echo $messagesRow['id'];?>">Let's go</a>
       </div>
       </div>
-      <div class="card card-2">
+      <?php 
+    }
+    ?>
+      <!--<div class="card card-2">
         <div class="card-content">
           <h6 class="card-title">Tom & Jerry</h2>
           <p class="card-body">In this case it will be the small
           </p>
-          <a href="" class="card-buttom" id = "2">Let's go</a>
+          <a class="card-buttom" id = "2">Let's go</a>
         </div>
       </div>
       <div class="card card-3">C</div>
@@ -172,7 +179,7 @@ else {
       <div class="card card-5">E</div>
       <div class="card card-6">F</div>
       <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
+      <div class="card card-8">H</div>-->
     </div>
   </div>
 
@@ -180,14 +187,14 @@ else {
   <h1 class = "h-cat"><a href=""  class = "logo">Жанры</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
-      <div class="genres">A</div>
-      <div class="genres">B</div>
-      <div class="genres">C</div>
-      <div class="genres">D</div>
-      <div class="genres">E</div>
-      <div class="genres">F</div>
-      <div class="genres">G</div>
-      <div class="genres">H</div>
+      <div class="genres"><a href="genres.php?fir_id=1&sec_id=<?php echo $rowMovieInfo[0];?> ">Action</a></div>
+      <div class="genres"><a href="genres.php?id=2">Comedy</a></div>
+      <div class="genres"><a href="genres.php?id=3">Drama</a></div>
+      <div class="genres"><a href="genres.php?id=4">Detective</a></div>
+      <div class="genres"><a href="genres.php?id=5">Fantasy</a></div>
+      <div class="genres"><a href="genres.php?id=6">Family</a></div>
+      <div class="genres"><a href="genres.php?id=7">Horror</a></div>
+      <div class="genres"><a href="genres.php?id=8">Historical</a></div>
     </div>
   </div>
 
