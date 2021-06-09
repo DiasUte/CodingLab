@@ -161,7 +161,7 @@ else {
         <h6 class="card-title"><?php echo $movieRow['name'];?></h2>
         <p class="card-body">In this case it will be the small description of movie
         </p>
-        <a class="card-buttom" id = "<?php echo $messagesRow['id'];?>">Let's go</a>
+        <a href = "moviePage.php?fir_id=<?php echo $movieRow['id'];?>&sec_id=<?="$rowMovieInfo[0]"?>" class="card-buttom">Let's go</a>
       </div>
       </div>
       <?php 
@@ -285,20 +285,6 @@ else {
 
 <script src="js/java.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-</script>
-<script>
-  $(document).ready(function(){
-    $(".card-buttom").on("click", function(){
-      var id = this.id;
-      location.href = "moviePage.php?id=" + id; 
-    });
-  });
-  $(document).ready(function(){
-    $(".whatisit").on("click", function(){
-      var id = this.id;
-      location.href = "movie.php?id=" + id; 
-    });
-  });
 </script>
 </body>
 </html>

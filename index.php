@@ -1,5 +1,12 @@
 <!doctype html>
-
+<?php
+	ob_start();
+	$dbc = mysqli_connect('localhost', 'root', '', 'qara') OR DIE('<p class="">Ошибка подключения к базе данных </p>');
+	$movies = mysqli_query($dbc, "SELECT * FROM `movies`");
+  $series = mysqli_query($dbc, "SELECT * FROM `serials`");
+  $cartoons = mysqli_query($dbc, "SELECT * FROM `cartoons`");
+  $tvshows = mysqli_query($dbc, "SELECT * FROM `tvshows`");
+?>
 <html>
 <head>
     <meta charset="utf-8">
@@ -143,76 +150,86 @@
   <h1 class = "h-cat"><a href="movie.php?id=1" class = "logo">MOVIES ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
+    <?php
+    while($movieRow = mysqli_fetch_assoc($movies)){
+   ?>
       <div class="card card-1">
         <div class="card-content">
-        <h6 class="card-title">SpongeBob</h2>
+        <h6 class="card-title"><?php echo $movieRow['name'];?></h2>
         <p class="card-body">In this case it will be the small description of movie
         </p>
-        <a class="card-buttom" id = "1">Let's go</a>
+        <a href = "moviePage.php?fir_id=<?php echo $movieRow['id'];?>&sec_id=Movies" class="card-buttom">Let's go</a>
       </div>
       </div>
-      <div class="card card-2">
-        <div class="card-content">
-          <h6 class="card-title">Tom & Jerry</h2>
-          <p class="card-body">In this case it will be the small
-          </p>
-          <a class="card-buttom" id = "2">Let's go</a>
-        </div>
-      </div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
+      <?php 
+    }
+    ?>
     </div>
-  </div>
+    </div>
 
   <br>
   <h1 class = "h-cat"><a href="movie.php?id=2"  class = "logo">SERIES ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
-      <div class="card card-1">A</div>
-      <div class="card card-2">B</div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
+  <?php
+    while($seriesRow = mysqli_fetch_assoc($series)){
+   ?>
+      <div class="card card-1">
+        <div class="card-content">
+        <h6 class="card-title"><?php echo $seriesRow['name'];?></h2>
+        <p class="card-body">In this case it will be the small description of movie
+        </p>
+        <a href = "moviePage.php?fir_id=<?php echo $seriesRow['id'];?>&sec_id=Series" class="card-buttom">Let's go</a>
+      </div>
+      </div>
+      <?php 
+    }
+    ?>
     </div>
-  </div>
+    </div>
 
   <br>
   <h1 class = "h-cat"><a href="movie.php?id=3" class = "logo">CARTOONS ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
-      <div class="card card-1">A</div>
-      <div class="card card-2">B</div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
+  <?php
+    while($cartoonRow = mysqli_fetch_assoc($cartoons)){
+   ?>
+      <div class="card card-1">
+        <div class="card-content">
+        <h6 class="card-title"><?php echo $cartoonRow['name'];?></h2>
+        <p class="card-body">In this case it will be the small description of movie
+        </p>
+        <a href = "moviePage.php?fir_id=<?php echo $cartoonRow['id'];?>&sec_id=Cartoons" class="card-buttom">Let's go</a>
+      </div>
+      </div>
+      <?php 
+    }
+    ?>
     </div>
-  </div>
+    </div>
 
 
   <br>
   <h1 class = "h-cat"><a href="movie.php?id=4" class = "logo">TV SHOWS ➤</a></h1>
   <div class="wrapper">
     <div class="carousel owl-carousel">
-      <div class="card card-1">A</div>
-      <div class="card card-2">B</div>
-      <div class="card card-3">C</div>
-      <div class="card card-4">D</div>
-      <div class="card card-5">E</div>
-      <div class="card card-6">F</div>
-      <div class="card card-7">G</div>
-      <div class="card card-8">H</div>
+    <?php
+    while($tvRow = mysqli_fetch_assoc($tvshows)){
+   ?>
+      <div class="card card-1">
+        <div class="card-content">
+        <h6 class="card-title"><?php echo $tvRow['name'];?></h2>
+        <p class="card-body">In this case it will be the small description of movie
+        </p>
+        <a href = "moviePage.php?fir_id=<?php echo $tvRow['id'];?>&sec_id=TVShows" class="card-buttom">Let's go</a>
+      </div>
+      </div>
+      <?php 
+    }
+    ?>
     </div>
-  </div>
+    </div>
   
 
 <footer class="site-footer">
@@ -269,20 +286,6 @@
 
 <script src="js/java.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous">
-</script>
-<script>
-  $(document).ready(function(){
-    $(".card-buttom").on("click", function(){
-      var id = this.id;
-      location.href = "moviePage.php?id=" + id; 
-    });
-  });
-  $(document).ready(function(){
-    $(".whatisit").on("click", function(){
-      var id = this.id;
-      location.href = "movie.php?id=" + id; 
-    });
-  });
 </script>
 </body>
 </html>
