@@ -18,11 +18,11 @@ if(isset($_POST['submitReg'])){
 			mysqli_query($dbc,$query);
       ob_end_flush();
 			mysqli_close($dbc);
-			header('Location: index.html');
+			header('Location: account.php');
 		}
 		else {
       ob_end_flush();
-			header('Location: account.html');
+			header('Location: index.php');
 		}
 	 }
 }
@@ -59,7 +59,17 @@ if(isset($_POST['submitReg'])){
                         <span id="passworderror" class="text-danger font-weight-bold" style="font-size:12px"></span>
                     </div>
                     <div class="form-group">
-                        <input type="password" name="password2" id="password2" placeholder="Confirm password" class="form-control">
+                        <input type="password" name="password2" id="password2" placeholder="Confirm password" class="form-control" 
+                        style = "width:56.56vw;
+	                            max-width: 575px;
+	                            height: 34px;
+	                            border-radius: 62px;
+	                            position:  relative;
+	                            margin: 0 auto;
+	                            box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	                            border: 0px solid #707070;
+	                            font-size: 20px;
+	                            margin-bottom: 20px;">
                         <span id="password2error" class="text-danger font-weight-bold" style="font-size:12px"></span>
                     </div>
                     <button class="btn2" name = "submitReg"><p class = "btn__text">Send</p></button>
@@ -107,7 +117,7 @@ if(isset($_POST['submitReg'])){
                                 return false;
                             } else {
                                 alert("The form completed successfully!");
-                                window.open("index.html");
+                                //window.open("index.php");
                             }
                         }
                     </script>

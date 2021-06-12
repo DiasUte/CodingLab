@@ -35,7 +35,7 @@
     <header>
         <div class="container">
             <div class="header">
-                <a href="index.html" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
+                <a href="index.php" class="logo" id="link_main" style = " font-size: 20px">Qara</a>
                 <nav class="menu">
                     <a href="movie.php?id=1">Movies</a>
                     <a href="movie.php?id=2">Serials</a>
@@ -49,8 +49,13 @@
                   <i class="fas fa-moon toggle-icon"></i>
                   <i class="fas fa-sun toggle-icon"></i>
                   <div class="toggle-ball"></div>
-              </div>
-                <a href="javascript:openModal()" class="menu__reg">
+              </div> <!--javascript:openModal()-->
+                <a href="<?php 
+                            if(!isset($_COOKIE['username'])) {
+                                echo "javascript:openModal().php";
+                            } else {
+                                echo "userpage.php";
+                            }?>" class="menu__reg">
                     <div class="menu__login">
                         <div class="menu__login__text">
                             <?php 

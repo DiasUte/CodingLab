@@ -835,6 +835,7 @@ body {
   transition: opacity 400ms ease-in;
   display: none;
   pointer-events: none;
+ 
 }
 
 .prefix-Dialog.active {

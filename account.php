@@ -21,7 +21,11 @@
                 <input type="password" placeholder="Confirm your password" id="re_password" name = "password2" class=".input1">
             </div>
         </div>
-        <input type="submit" id="submitLog" name="submitLog" value="Log in" class="btn2">
+        <input type="submit" id="submitLog" name="submitLog" value="LOG IN" class="btn2"
+		style = "font-family: Montserrat;
+				color: rgb(255, 255, 255);
+				font-weight: bold;
+				font-size: 20px;" >
         <p class="form-error" id="form_error"></p>
     </div>
 </body>
