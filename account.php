@@ -18,14 +18,14 @@
             <div class="input__text1">
                 <input type="text" placeholder="Enter your nickname" id="username" name="username" required class=".input1">
                 <input type="password" placeholder="Enter your password" id="password" name = "password" class=".input1">
-                <input type="password" placeholder="Confirm your password" id="re_password" name = "password2" class=".input1">
             </div>
         </div>
-        <input type="submit" id="submitLog" name="submitLog" value="LOG IN" class="btn2"
+        <input type="submit" id="submitLog" name="submitLog" value="                LOG IN" class="btn2"
 		style = "font-family: Montserrat;
 				color: rgb(255, 255, 255);
 				font-weight: bold;
-				font-size: 20px;" >
+				font-size: 20px;
+				margin-top: -90px;" >
         <p class="form-error" id="form_error"></p>
     </div>
 </body>

@@ -42,7 +42,12 @@
                   <i class="fas fa-sun toggle-icon"></i>
                   <div class="toggle-ball"></div>
               </div>
-                <a href="javascript:openModal()" class="menu__reg">
+                <a href="<?php 
+                            if(!isset($_COOKIE['username'])) {
+                                echo "javascript:openModal().php";
+                            } else {
+                                echo "userpage.php";
+                            }?>" class="menu__reg">
                     <div class="menu__login">
                         <div class="menu__login__text">
                             <?php 

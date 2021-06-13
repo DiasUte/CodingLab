@@ -504,6 +504,9 @@ ol,
       background-color: white;
       transform: translateX(-20px);
   }
+  header.active { 
+    background-color: white;
+  }
 
 
 /*
