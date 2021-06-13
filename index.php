@@ -78,9 +78,6 @@
               <a href="account.php" class="btn1">
                   <div class="btn__text">I have already account</div>
               </a>
-              <a href="exit.php" class="btn1">
-                  <div class="btn__text">Log Out</div>
-              </a>
               <a class="prefix-close" title="Закрыть" href="#close"></a>
           </div>
 
@@ -248,10 +245,10 @@
           <div class="col-xs-6 col-md-3">
             <h6>Categories</h6>
             <ul class="footer-links">
-              <li><a href="http://scanfcode.com/category/c-language/">Movies</a></li>
-              <li><a href="http://scanfcode.com/category/front-end-development/">Series</a></li>
-              <li><a href="http://scanfcode.com/category/back-end-development/">Cartoons</a></li>
-              <li><a href="http://scanfcode.com/category/java-programming-language/">TV Shows</a></li>
+              <li><a href="movie.php?id=1">Movies</a></li>
+              <li><a href="movie.php?id=2">Series</a></li>
+              <li><a href="movie.php?id=3">Cartoons</a></li>
+              <li><a href="movie.php?id=4">TV Shows</a></li>
              
             </ul>
           </div>

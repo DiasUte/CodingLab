@@ -214,7 +214,7 @@ var slideShow = (function () {
 
 const ball = document.querySelector(".toggle-ball");
 const items = document.querySelectorAll(
-  ".container,.movie-list-title,.navbar-container,.sidebar,.left-menu-icon,.toggle"
+  "body,.site-footer,header,.toggle"
 );
 
 ball.addEventListener("click", () => {

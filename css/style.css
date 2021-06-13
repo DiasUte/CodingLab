@@ -504,9 +504,17 @@ ol,
       background-color: white;
       transform: translateX(-20px);
   }
-  header.active { 
-    background-color: white;
+  /* TOGGLE ACTIVE */
+  header.active {
+    background-color: rgb(135, 194, 250);
   }
+  body.active {
+    background-color: lightskyblue;
+  }
+  .site-footer.active {
+    background-color: rgb(0, 140, 255);
+  }
+  
 
 
 /*
