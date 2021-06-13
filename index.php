@@ -155,7 +155,9 @@
     <?php
     while($movieRow = mysqli_fetch_assoc($movies)){
    ?>
-      <div class="card card-1">
+      <div class="card card-1" style = " 
+      background: url(https://www.film.ru/sites/default/files/movies/posters/44666512-1427025.jpg) 100% 100% no-repeat;
+      background-size: cover;">
         <div class="card-content">
         <h6 class="card-title"><?php echo $movieRow['name'];?></h2>
         <p class="card-body">In this case it will be the small description of movie
