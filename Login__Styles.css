@@ -1,0 +1,216 @@
+a:active, a:focus { outline: none; }
+
+input, textarea {outline:none;}
+input:active, textarea:active {outline:none;}
+:focus {outline:none;}
+textarea {resize:none;}
+textarea {resize:vertical;}
+textarea {resize:horizontal;}
+a {
+    text-decoration: none;
+}
+body
+{	font-family: 'Montserrat', sans-serif;
+	 width: 100%;
+    height: 100%;
+	margin:0;
+}
+
+.container_log a{
+	font-family: 'Montserrat', sans-serif;
+	text-decoration: none;
+	color:white;
+	font-size: 41px;
+	font-weight: 700;
+}
+#container_log {
+ 	background-color: white;
+    text-align: center;
+    vertical-align: middle;
+	width: 100%;
+	max-width: 600px;
+	max-height: 815px;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	border-radius: 30px;
+}
+.container2{
+	position: relative;
+ 	display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+	width: 100%;
+	max-width: 900px;
+	height: 100vh;
+	max-height: 915px;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	
+}
+.container3{
+	display: flex;
+  align-items: center;
+  justify-content: center ;	
+    text-align: center;
+    vertical-align: middle;
+	width: 100%;
+	max-width: 900px;
+	height: 100vh;
+	max-height: 915px;
+	text-align: center;
+	flex-direction: column;
+	justify-content: center;
+	margin:auto;
+}
+
+
+.btn1
+{
+	display: flex;
+	width: 100%;
+	height: 70vh;
+	max-width: 500px;
+	max-height: 110px;
+	background-color: #ff0000;
+	border-radius: 21px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:61px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	transition: transform 0.2s linear, all 500ms ease;
+	 border: none;
+
+}
+.btn1:hover,.btn2:hover{
+	transform: scale(1.1);
+	background-color: #fab5b5;
+  	box-shadow: inset 0 0 0 3px #f80000;
+}
+
+.btn1:last-child{
+	margin-top:0px;}
+.btn2
+{
+	display: flex;
+	width: 100%;
+	height: 100vh;
+	max-width: 271px;
+	max-height: 45px;
+	background-color: #0E81A2;
+	border-radius: 62px;
+	margin-left: auto;
+	margin-right: auto;
+	font-size: 18px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	transition: transform 0.2s linear,all 500ms ease;
+	 border: none;
+	 margin-top: 5PX;
+
+}
+.btn__text{
+	text-align: center;
+	margin:  auto;
+	vertical-align: middle;
+	font-family: Montserrat;
+	color: rgb(255, 255, 255);
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.input__text1{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;	
+	height: 100vh;
+	width: 100%;
+	max-height: 400px; 
+
+}
+
+#input_phone{
+	width:56.56vw;
+	max-width: 575px;
+	height: 34px;
+	border-radius: 62px;
+	position:  relative;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	border: 0px solid #707070;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+#username{
+	width:56.56vw;
+	max-width: 575px;
+	height: 34px;
+	border-radius: 62px;
+	position:  relative;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	border: 0px solid #707070;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+#email{
+	width:56.56vw;
+	max-width: 575px;
+	height: 34px;
+	border-radius: 62px;
+	position:  relative;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	border: 0px solid #707070;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+#password{
+	width:56.56vw;
+	max-width: 575px;
+	height: 34px;
+	border-radius: 62px;
+	position:  relative;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	border: 0px solid #707070;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+#password2{
+	width:56.56vw;
+	max-width: 575px;
+	height: 34px;
+	border-radius: 62px;
+	position:  relative;
+	margin: 0 auto;
+	box-shadow: 0 0 10px rgba(0,0,0,0.25);
+	border: 0px solid #707070;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+.input{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;	
+	height: 100vh;
+	width: 100%;
+	max-height: 206px; 
+}
+input[placeholder]         
+ {
+	 text-overflow:ellipsis;
+ 	font-family: 'Montserrat', sans-serif;
+ 	opacity: 0.5;
+ 	font-size: 4px;
+ 	padding-left: 30px;
+ }
+
+ input{
+ 	transition: background-color 0.2s ease;
+ }
+ input:focus {
+  input:focus;
+  background-color:#adcad5;
+}
